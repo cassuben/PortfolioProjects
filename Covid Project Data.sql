@@ -109,7 +109,7 @@ WHERE dea.continent is not null
 ORDER BY 2,3
 
 -- Looking at total population vaccinated by dividing the Rolling SUM of vaccinations by total population
--- USE CTE 1:02
+-- USE CTE
 
 WITH PopvsVac (continent, location, date, population, new_vaccinations, RollingPeopleVaccinated)
 as
@@ -128,7 +128,7 @@ SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac;
 
 
--- TEMP TABLE 1:06 - 1:10
+-- TEMP TABLE
 
 --DROP table if exists #PercentPopulationVaccinated
 USE PortfolioProject
@@ -158,7 +158,7 @@ SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PercentPopulationVaccinated
 
 
--- CREATING A VIEW 1:10
+-- CREATING A VIEW 
 
 -- DROP VIEW if exists HighestDeathCountByContinent
 USE PortfolioProject
@@ -171,10 +171,4 @@ GROUP BY continent
 --ORDER BY TotalDeathCount DESC;
 
 
--- IT IS HIGHLY RECOMMENDED TO CREATE A BUNCH OF DIFFERENT VIEWS SO THEY CAN BE USED IN TABLEAU PUBLIC
-
-
--- UPLOADING TO GITHUB 1:14
-
-
-
+-- HIGHLY RECOMMEND CREATING A BUNCH OF DIFFERENT VIEWS SO THEY CAN BE USED IN TABLEAU PUBLIC
