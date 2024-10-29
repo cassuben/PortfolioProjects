@@ -1,0 +1,53 @@
+#python file sorter project
+
+#goal is to sort files in Resume file path so that common files go into their own folder without drag and drop
+
+#C:\Users\cassu\OneDrive\Documents\Resume
+
+#first need to import the os and shutil modules so this functionality is available
+
+import os, shutil
+
+#next need to define the path being used
+
+path = r"C:/Users/cassu/OneDrive/Documents/Resume/"
+file_name = os.listdir(path)
+
+#create folder names required for parsing files
+
+folder_names = ['PDF Docs', 'Word Docs', 'Misc Docs']
+
+for loop in range(0,3):
+      if not os.path.exists(path + folder_names[loop]):
+            print(path + folder_names[loop])
+            os.makedirs(path + folder_names[loop])
+#finally, move files to specified locations based on type
+
+for file in file_name:
+    if ".pdf" in file and not os.path.exists(path + "PDF Docs/" + file):
+        shutil.move(path + file, path + "PDF Docs/" + file)
+    if ".docx" in file and not os.path.exists(path + "Word Docs/" + file):
+        shutil.move(path + file, path + "Word Docs/" + file)
+    if ".png" in file and not os.path.exists(path + "Misc Docs/" + file):
+        shutil.move(path + file, path + "Misc Docs/" + file)
+
+#combined code
+
+path = r"C:/Users/cassu/OneDrive/Documents/Resume/"
+
+file_name = os.listdir(path)
+
+folder_names = ['PDF Docs', 'Word Docs', 'Misc Docs']
+
+for loop in range(0,3):
+      if not os.path.exists(path + folder_names[loop]):
+            print(path + folder_names[loop])
+            os.makedirs(path + folder_names[loop])
+
+for file in file_name:
+    if ".pdf" in file and not os.path.exists(path + "PDF Docs/" + file):
+        shutil.move(path + file, path + "PDF Docs/" + file)
+    if ".docx" in file and not os.path.exists(path + "Word Docs/" + file):
+        shutil.move(path + file, path + "Word Docs/" + file)
+    if ".png" in file and not os.path.exists(path + "Misc Docs/" + file):
+        shutil.move(path + file, path + "Misc Docs/" + file)
